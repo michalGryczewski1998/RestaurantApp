@@ -59,7 +59,7 @@
             RestauracjaSM.Items.AddRange(new ToolStripItem[] { dodajToolStripMenuItem, usuńToolStripMenuItem, modyfikujToolStripMenuItem, informacjeToolStripMenuItem });
             RestauracjaSM.Location = new Point(0, 0);
             RestauracjaSM.Name = "RestauracjaSM";
-            RestauracjaSM.Size = new Size(1184, 24);
+            RestauracjaSM.Size = new Size(811, 24);
             RestauracjaSM.TabIndex = 0;
             RestauracjaSM.Text = "menuStrip1";
             // 
@@ -181,7 +181,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1184, 30);
+            panel1.Size = new Size(811, 30);
             panel1.TabIndex = 3;
             // 
             // PoleRoboczePanel
@@ -190,7 +190,7 @@
             PoleRoboczePanel.Dock = DockStyle.Fill;
             PoleRoboczePanel.Location = new Point(0, 30);
             PoleRoboczePanel.Name = "PoleRoboczePanel";
-            PoleRoboczePanel.Size = new Size(1184, 522);
+            PoleRoboczePanel.Size = new Size(811, 522);
             PoleRoboczePanel.TabIndex = 5;
             // 
             // ZakladkiPodmenu
@@ -199,14 +199,14 @@
             ZakladkiPodmenu.Location = new Point(0, 0);
             ZakladkiPodmenu.Name = "ZakladkiPodmenu";
             ZakladkiPodmenu.SelectedIndex = 0;
-            ZakladkiPodmenu.Size = new Size(1184, 522);
+            ZakladkiPodmenu.Size = new Size(811, 522);
             ZakladkiPodmenu.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 552);
+            ClientSize = new Size(811, 552);
             Controls.Add(PoleRoboczePanel);
             Controls.Add(panel1);
             Name = "MainForm";
