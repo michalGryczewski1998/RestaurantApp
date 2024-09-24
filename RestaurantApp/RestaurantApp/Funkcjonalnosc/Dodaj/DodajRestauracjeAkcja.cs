@@ -1,4 +1,5 @@
-﻿using RestaurantApp.Models.Dodaj;
+﻿using RestaurantApp.Funkcjonalnosc.Connector;
+using RestaurantApp.Models.Dodaj;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace RestaurantApp.Funkcjonalnosc.Dodaj
 {
     public class DodajRestauracjeAkcja
     {
-        public void Dodaj(DodajRestauracjeModel daneRestauracji, out bool status)
+        public void Dodaj(DodajRestauracjeModel daneRestauracji)
         {
-            status = false;
+            var connector = new MainConnector(daneRestauracji);
         }
 
     }

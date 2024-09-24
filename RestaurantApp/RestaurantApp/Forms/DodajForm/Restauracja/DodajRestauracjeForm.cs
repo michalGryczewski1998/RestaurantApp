@@ -14,14 +14,37 @@ namespace RestaurantApp.Forms.DodajForm.Restauracja
 {
     public partial class DodajRestauracje : Form
     {
+        private static DodajRestauracje? _instance = null;
+        private readonly string _zdjecie = string.Empty;
 
         public DodajRestauracje()
         {
             InitializeComponent();
         }
 
-        private static DodajRestauracje? _instance = null;
-        private readonly string _zdjecie = string.Empty;
+        public static DodajRestauracje Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new DodajRestauracje();
+                }
+                return _instance;
+            }
+        }
+
+        public static bool TruOrFalseInstance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
 
         private void DodajBTN_Click(object sender, EventArgs e)
         {  
@@ -33,7 +56,7 @@ namespace RestaurantApp.Forms.DodajForm.Restauracja
 
             if (_restauracja != null)
             {
-                dodaj.Dodaj(_restauracja, out _status);
+                dodaj.Dodaj(_restauracja);
             }
             else
             {
@@ -108,30 +131,6 @@ namespace RestaurantApp.Forms.DodajForm.Restauracja
             }
 
             return status;
-        }
-
-        public static DodajRestauracje Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new DodajRestauracje();
-                }
-                return _instance;
-            }
-        }
-
-        public static bool TruOrFalseInstance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    return true;
-                }
-                return false;
-            }
         }
     }
 }
