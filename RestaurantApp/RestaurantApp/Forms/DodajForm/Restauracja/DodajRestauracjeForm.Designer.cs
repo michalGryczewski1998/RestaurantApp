@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DodajeRestauracjePanel = new Panel();
             DodajZdjecieTB = new Button();
             WyczyscTB = new Button();
             DodajBTN = new Button();
             pictureBox1 = new PictureBox();
             DanePodstawoweGB = new GroupBox();
-            OpisrestauracjiTB = new TextBox();
+            OpisRestauracjiTB = new TextBox();
             NumerDoZamowienTB = new TextBox();
             EmailTB = new TextBox();
             ImieTB = new TextBox();
@@ -47,14 +48,18 @@
             KodPocztowyTB = new TextBox();
             UlicaTB = new TextBox();
             MiastoTB = new TextBox();
+            StatusWalidacjiEP = new ErrorProvider(components);
+            StatusLabel = new Label();
             DodajeRestauracjePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             DanePodstawoweGB.SuspendLayout();
             AdresGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)StatusWalidacjiEP).BeginInit();
             SuspendLayout();
             // 
             // DodajeRestauracjePanel
             // 
+            DodajeRestauracjePanel.Controls.Add(StatusLabel);
             DodajeRestauracjePanel.Controls.Add(DodajZdjecieTB);
             DodajeRestauracjePanel.Controls.Add(WyczyscTB);
             DodajeRestauracjePanel.Controls.Add(DodajBTN);
@@ -93,6 +98,7 @@
             DodajBTN.TabIndex = 10;
             DodajBTN.Text = "Dodaj";
             DodajBTN.UseVisualStyleBackColor = true;
+            DodajBTN.Click += DodajBTN_Click;
             // 
             // pictureBox1
             // 
@@ -105,7 +111,7 @@
             // 
             // DanePodstawoweGB
             // 
-            DanePodstawoweGB.Controls.Add(OpisrestauracjiTB);
+            DanePodstawoweGB.Controls.Add(OpisRestauracjiTB);
             DanePodstawoweGB.Controls.Add(NumerDoZamowienTB);
             DanePodstawoweGB.Controls.Add(EmailTB);
             DanePodstawoweGB.Controls.Add(ImieTB);
@@ -121,15 +127,15 @@
             DanePodstawoweGB.TabStop = false;
             DanePodstawoweGB.Text = "Informacje";
             // 
-            // OpisrestauracjiTB
+            // OpisRestauracjiTB
             // 
-            OpisrestauracjiTB.BorderStyle = BorderStyle.FixedSingle;
-            OpisrestauracjiTB.Location = new Point(181, 109);
-            OpisrestauracjiTB.Multiline = true;
-            OpisrestauracjiTB.Name = "OpisrestauracjiTB";
-            OpisrestauracjiTB.Size = new Size(229, 116);
-            OpisrestauracjiTB.TabIndex = 8;
-            OpisrestauracjiTB.Text = "Opis:";
+            OpisRestauracjiTB.BorderStyle = BorderStyle.FixedSingle;
+            OpisRestauracjiTB.Location = new Point(181, 109);
+            OpisRestauracjiTB.Multiline = true;
+            OpisRestauracjiTB.Name = "OpisRestauracjiTB";
+            OpisRestauracjiTB.Size = new Size(229, 116);
+            OpisRestauracjiTB.TabIndex = 8;
+            OpisRestauracjiTB.Text = "Opis:";
             // 
             // NumerDoZamowienTB
             // 
@@ -245,6 +251,18 @@
             MiastoTB.TabIndex = 1;
             MiastoTB.Text = "Miasto";
             // 
+            // StatusWalidacjiEP
+            // 
+            StatusWalidacjiEP.ContainerControl = this;
+            // 
+            // StatusLabel
+            // 
+            StatusLabel.AutoSize = true;
+            StatusLabel.Location = new Point(206, 423);
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Size = new Size(0, 15);
+            StatusLabel.TabIndex = 13;
+            // 
             // DodajRestauracje
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -254,11 +272,13 @@
             Name = "DodajRestauracje";
             Text = "DodajRestauracjeForm";
             DodajeRestauracjePanel.ResumeLayout(false);
+            DodajeRestauracjePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             DanePodstawoweGB.ResumeLayout(false);
             DanePodstawoweGB.PerformLayout();
             AdresGB.ResumeLayout(false);
             AdresGB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)StatusWalidacjiEP).EndInit();
             ResumeLayout(false);
         }
 
@@ -281,6 +301,8 @@
         private Button WyczyscTB;
         private Button DodajBTN;
         private PictureBox pictureBox1;
-        private TextBox OpisrestauracjiTB;
+        private TextBox OpisRestauracjiTB;
+        private ErrorProvider StatusWalidacjiEP;
+        private Label StatusLabel;
     }
 }
