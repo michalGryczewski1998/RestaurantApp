@@ -1,9 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 using RestaurantApp.Models.Dodaj;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace RestaurantApp.Funkcjonalnosc.Connector
@@ -13,6 +18,7 @@ namespace RestaurantApp.Funkcjonalnosc.Connector
         public IConfiguration Configuration { get; }
         ConfigurationBuilder _builder = new ();
         DodajRestauracjeModel _daneRestauracji;
+        private static readonly HttpClient client = new HttpClient();
 
         public MainConnector(DodajRestauracjeModel daneRestauracji)
         {
@@ -23,10 +29,25 @@ namespace RestaurantApp.Funkcjonalnosc.Connector
             Configuration = _builder.Build();
         }
 
-        private void DodajRestauracje()
+        public async Task DodajRestauracje()
         {
-            string _apiUrl = Configuration["AppSettings:ApiUrl"];
+            string _apiUrl = Configuration["AppSettings:ApiDodaj"];
 
+            var json = JsonConvert.SerializeObject(_daneRestauracji);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(_apiUrl, content);
+
+#if DEBUG
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Dane zostały pomyślnie wysłane!");
+            }
+            else
+            {
+                Console.WriteLine($"Błąd: {response.StatusCode}");
+            }
+#endif
         }
     }
 }
